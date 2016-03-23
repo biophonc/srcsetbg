@@ -12,7 +12,7 @@
 
 )(this, () ->
   return (cssklass) ->
-    c = if (typeof classname is 'undefined') then 'srcsetbg' else cssklass
+    c = if (typeof cssklass is 'undefined') then 'srcsetbg' else cssklass
     w = window.innerWidth
     col = document.getElementsByClassName(c)
 

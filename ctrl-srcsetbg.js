@@ -9,7 +9,7 @@
 })(this, function() {
   return function(cssklass) {
     var c, cmp, col, i, j, len, prp, results, set, srcset, w;
-    c = typeof classname === 'undefined' ? 'srcsetbg' : cssklass;
+    c = typeof cssklass === 'undefined' ? 'srcsetbg' : cssklass;
     w = window.innerWidth;
     col = document.getElementsByClassName(c);
     cmp = function(a, b) {
