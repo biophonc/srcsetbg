@@ -1,6 +1,6 @@
 {
   "name": "ctrl.srcsetbg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "load's background images based on the browserd width via the srcset attribute",
   "main": "ctrl-srcsetbg.js",
   "dependencies": {
