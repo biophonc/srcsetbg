@@ -1,0 +1,22 @@
+html, body { height: 100%; margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+a { color: #f92672; }
+
+.srcsetbg { -moz-transition: height 0.3s; -o-transition: height 0.3s; -webkit-transition: height 0.3s; transition: height 0.3s; width: 100%; background-size: cover; background-repeat: no-repeat; background-position: 50% 50%; margin: 0 auto; height: 100vh; }
+.srcsetbg h1, .srcsetbg h2 { margin: 0; padding: 0; color: #fff; position: relative; }
+.srcsetbg h1 { font-size: 5vw; left: .95vw; }
+.srcsetbg h2 { font-size: 1.63vw; top: -1em; left: 1vw; }
+
+.wrap { width: 100%; max-width: 1000px; margin: 0 auto; }
+
+.hl, dfn { border-bottom: 1px dotted darkgrey; }
+
+main { font-size: 1.15em; line-height: 1.6em; color: #272822; }
+main h1, main h2, main h3, main h4 { color: #636252; letter-spacing: .05em; }
+main h2 { font-size: 1.6em; }
+main h3 { font-size: 1.3em; }
+main code { font-size: .8em; }
+
+@media only screen and (max-width: 1000px) { .wrap { margin: 0 20px; } }
+@media only screen and (max-width: 786px) { .srcsetbg { height: 60vh; } }
+@media only screen and (max-width: 420px) { .srcsetbg { height: 30vh; } }

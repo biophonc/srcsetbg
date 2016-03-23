@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SrcSetBg - responsive backgrounds.</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/syntax.css">
+</head>
+<body>
+  <!-- div with 4 different background images -->
+  <div class="srcsetbg" data-srcset="assets/img/xs.png 420w, assets/img/s.png 780w, assets/img/m.png 1024w, assets/img/l.png 1400w, assets/img/xl.png 1920w">
+    <h1>SrcSetBg</h1>
+    <h2>responsive backgrounds.</h2>
+  </div>
+
+  <main class="wrap">
+    <h2>Intro</h2>
+    <p>I needed simple responsive backgrounds for more than one project and I haven't found a utility that is flexible enough or fit my needs, so I wrote one.</p>
+    <h2>Features</h2>
+    <ul>
+      <li>AMD support</li>
+      <li>Small foot print: 803 bytes (minified)</li>
+      <li>Simple usage (srcset style)</li>
+      <li>Passes validation</li>
+      <li>Modern Browser support only</li>
+      <li>Does what it does and nothing more</li>
+    </ul>
+
+	<h2>Excluded by design</h2>
+    <ul>
+    	<li><strong>Events (on load and resize)</strong>: Use your favourite framework, library or vanilla js function or whatever you like for that.</li>
+        <li><strong>Throttling events</strong>: I'd suggest something like lodash's _.throttle() but it's up to you.</li>
+        <li><strong>CSS defaults</strong>: Use your own CSS as you need it. </li>
+    </ul>
+    
+    <h2>Getting started</h2>
+    <p><a href="https://github.com/biophonc/srcsetbg">Clone Repository</a>, <a href="https://github.com/biophonc/srcsetbg/archive/master.zip">download</a> or install via <code class="language-bash">npm install --save-dev srcsetbg</code></p>
+
+    <h3>Markup</h3>
+    <pre><code class="language-coffeescript">&lt;div class="srcsetbg"
+  data-srcset="img/xs.png 420w, img/s.png 780w, img/m.png 1024w, img/l.png 1400w, img/xl.png 1920w"&gt;</code></pre>
+    <p>Note: the script uses the <span class="hl">ℕw</span> param as maximum width with one execption: the largest param is used as minimum width.</p>
+    
+    <h3>JS</h3>
+    <p>Once included the script is included and the markup is ready, just run:</p>
+    <pre><code class="language-javascript">ctrlSrcSetBg();</code></pre>
+    <p>By default the script looks for elements, that contains the class name <span class="hl">srcsetbg</span>.
+    Of course you can override the class name like so: <code class="language-javascript">ctrlSrcSetBg('my-own-selector');</code></p>
+    <h2>A little bit more advanced but not that much</h2>
+    <p>The script just uses the data-srcset attribtue to extracts and map the values and set one of them as background image.
+      If you use an event listener for the 'resize' event, you may want to throttle the execution, because events can be expensive.</p>
+    <h2>Example</h2>
+    <h3>AMD/jQuery/lodash/Coffeescript:</h3>
+    <pre><code class="language-coffeescript"># require libs/modules
+_ = require 'lodash'
+$ = require 'jquery'
+srcsetbg = require 'ctrl-srcsetbg' # set custom CSS selector
+
+# init event listeners
+$(window).on('resize', _.throttle(srcsetbg, 50)) # throttle the resize event
+$(window).on('ready', srcsetbg) # this one needs no throttling</code></pre>
+  </main>
+
+
+
+  <!-- lodash is only used for the throttle function -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
+  <script src="assets/js/prism.min.js"></script>
+  <script src="ctrl-srcsetbg.min.js"></script>
+  <script>
+
+    // wrap call in a function for `_.throttle(func, [wait=0], [options])`
+    var ssb = function() {
+      ctrlSrcSetBg('ctrlSrcSetBg');
+    };
+
+    // attach events
+    window.addEventListener('resize', _.throttle(ssb, 50), false);
+    window.addEventListener('DOMContentLoaded', ssb, false);
+
+  </script>
+</body>
+</html>
