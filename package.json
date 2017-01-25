@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/biophonc/ctrl-srcsetbg.git"
+    "url": "git+https://github.com/biophonc/srcsetbg.git"
   },
   "author": "biophonc <eike.reifhardt+npm@madebypeople.com>",
   "license": "ISC",
